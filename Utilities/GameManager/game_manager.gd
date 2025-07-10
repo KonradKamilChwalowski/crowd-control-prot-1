@@ -7,6 +7,11 @@ var game_stage := load("res://Stages/GameStage/game_stage.tscn")
 #var menu_howtoplay_stage := load("res://Stages/menu_howtoplay_stage.tscn")
 #var menu_options_stage := load("res://Stages/menu_options_stage.tscn")
 
+var difficulty_settings: Array = [
+	[3, 3, 1, 1, 6],
+	[4, 5, 3, 2, 9],
+	[4, 6, 4, 3, 12],
+	[6, 8, 6, 4, 15]]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

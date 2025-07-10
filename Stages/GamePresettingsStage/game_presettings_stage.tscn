@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1yts32yikwhe"]
+[gd_scene load_steps=3 format=3 uid="uid://d1yts32yikwhe"]
 
 [ext_resource type="Texture2D" uid="uid://caehbis511c5a" path="res://Stages/GamePresettingsStage/game_pressetings_stage_background.png" id="1_ou8ty"]
 [ext_resource type="Script" uid="uid://c5slywtthudl1" path="res://Stages/GamePresettingsStage/game_presettings_stage.gd" id="1_qhf8y"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhf8y"]
 
 [node name="GamePresettingsStage" type="Node2D"]
 script = ExtResource("1_qhf8y")
@@ -20,7 +18,6 @@ offset_top = 608.0
 offset_right = 1004.0
 offset_bottom = 768.0
 theme_override_font_sizes/font_size = 80
-theme_override_styles/normal = SubResource("StyleBoxFlat_qhf8y")
 text = "PLAY!"
 
 [node name="HBoxContainer" type="VBoxContainer" parent="TextureRect"]
@@ -90,7 +87,7 @@ text = "Occupations: ?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Area Label" type="Label" parent="TextureRect/Container"]
+[node name="AreaLabel" type="Label" parent="TextureRect/Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
