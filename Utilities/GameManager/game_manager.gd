@@ -2,7 +2,8 @@ extends Node2D
 
 var actual_stage: Node2D
 var menu_stage := load("res://Stages/MenuStage/menu_stage.tscn")
-#var game_stage := load("res://Stages/game_stage.tscn")
+var game_presetting_stage := load("res://Stages/GamePresettingsStage/game_presettings_stage.tscn")
+var game_stage := load("res://Stages/GameStage/game_stage.tscn")
 #var menu_howtoplay_stage := load("res://Stages/menu_howtoplay_stage.tscn")
 #var menu_options_stage := load("res://Stages/menu_options_stage.tscn")
 
@@ -20,9 +21,11 @@ func load_stage(stage_name: String) -> void:
 	if stage_name == "menu_stage":
 		actual_stage = menu_stage.instantiate()
 	
-	#TODO
-	#if stage_name == "game_stage":
-	#	actual_stage = game_stage.instantiate()
+	if stage_name == "menu_presetting_stage":
+		actual_stage = game_presetting_stage.instantiate()
+		
+	if stage_name == "game_stage":
+		actual_stage = game_stage.instantiate()
 	
 	#TODO
 	#if stage_name == "menu_howtoplay_stage":

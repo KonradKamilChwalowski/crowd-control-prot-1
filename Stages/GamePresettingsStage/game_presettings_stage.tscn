@@ -1,10 +1,125 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1yts32yikwhe"]
+[gd_scene load_steps=4 format=3 uid="uid://d1yts32yikwhe"]
 
 [ext_resource type="Texture2D" uid="uid://caehbis511c5a" path="res://Stages/GamePresettingsStage/game_pressetings_stage_background.png" id="1_ou8ty"]
+[ext_resource type="Script" uid="uid://c5slywtthudl1" path="res://Stages/GamePresettingsStage/game_presettings_stage.gd" id="1_qhf8y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhf8y"]
 
 [node name="GamePresettingsStage" type="Node2D"]
+script = ExtResource("1_qhf8y")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_ou8ty")
+
+[node name="PlayButton" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 608.0
+offset_right = 1004.0
+offset_bottom = 768.0
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_qhf8y")
+text = "PLAY!"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 96.0
+offset_right = 651.0
+offset_bottom = 560.0
+
+[node name="TutorialButton" type="Button" parent="TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Tutorial"
+
+[node name="EasyButton" type="Button" parent="TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Easy"
+
+[node name="MediumButton" type="Button" parent="TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Medium"
+
+[node name="HardButton" type="Button" parent="TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Hard"
+
+[node name="CustomButton" type="Button" parent="TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Custom"
+
+[node name="Container" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 96.0
+offset_right = 1146.0
+offset_bottom = 560.0
+
+[node name="RacesLabel" type="Label" parent="TextureRect/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "Races: ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WorkLabel" type="Label" parent="TextureRect/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "Occupations: ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area Label" type="Label" parent="TextureRect/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "Areas: ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OtherCandidatesLabel" type="Label" parent="TextureRect/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "Number of enemy candidates: ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PostsNumberLabel" type="Label" parent="TextureRect/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "Number of posts: ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureRect/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer/EasyButton" to="." method="_on_easy_button_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer/MediumButton" to="." method="_on_medium_button_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer/HardButton" to="." method="_on_hard_button_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer/CustomButton" to="." method="_on_custom_button_pressed"]

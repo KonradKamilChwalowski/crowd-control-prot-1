@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://beudu1ik00448"]
+[gd_scene load_steps=3 format=3 uid="uid://beudu1ik00448"]
 
 [ext_resource type="Texture2D" uid="uid://ldjuiog1vsu4" path="res://Stages/MenuStage/menu_stage_background.png" id="1_e68d5"]
+[ext_resource type="Script" uid="uid://ccduo055bwroe" path="res://Stages/MenuStage/menu_stage.gd" id="1_s12ug"]
 
 [node name="MenuStage" type="Node2D"]
+script = ExtResource("1_s12ug")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1366.0
@@ -22,14 +24,21 @@ alignment = 1
 [node name="StartButton" type="Button" parent="Background/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
 text = "Play"
 
 [node name="HowtoplayButton" type="Button" parent="Background/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
 text = "How to play"
 
 [node name="OptionsButton" type="Button" parent="Background/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
 text = "Options"
+
+[connection signal="pressed" from="Background/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/HowtoplayButton" to="." method="_on_howtoplay_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
