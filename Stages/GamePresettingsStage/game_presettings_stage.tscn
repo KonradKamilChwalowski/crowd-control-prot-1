@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1yts32yikwhe"]
+
+[ext_resource type="Texture2D" uid="uid://caehbis511c5a" path="res://Stages/GamePresettingsStage/game_pressetings_stage_background.png" id="1_ou8ty"]
+
+[node name="GamePresettingsStage" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ou8ty")

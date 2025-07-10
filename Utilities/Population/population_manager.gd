@@ -8,6 +8,11 @@ var population: Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generate_population()
+	# TODO calculate_support()
+
+# TODO
+func calculate_support() -> void:
+	pass
 
 func generate_population() -> void:
 	var citizen: Array = []
