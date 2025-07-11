@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://p1eyxhwyo30f"]
 
-[ext_resource type="Texture2D" uid="uid://2dcbairm7i1h" path="res://Entities/race_support_bar/Entity 1.png" id="1_1t5u3"]
-[ext_resource type="Script" uid="uid://cvjohre7na8fr" path="res://Entities/race_support_bar/race_support_bar.gd" id="1_drxpd"]
+[ext_resource type="Texture2D" uid="uid://2dcbairm7i1h" path="res://Entities/support_bar/Human.png" id="1_1t5u3"]
+[ext_resource type="Script" uid="uid://cvjohre7na8fr" path="res://Entities/support_bar/support_bar.gd" id="1_drxpd"]
 
-[node name="RaceSupportBar" type="Control"]
-custom_minimum_size = Vector2(40, 40)
+[node name="SupportBar" type="Control"]
+custom_minimum_size = Vector2(328, 80)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1046.0
+offset_right = -1038.0
 offset_bottom = -688.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -41,7 +41,7 @@ offset_bottom = 72.0
 scale = Vector2(0.5, 1)
 color = Color(0, 0.627451, 0, 1)
 
-[node name="RaceNameLabel" type="Label" parent="."]
+[node name="NameLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 8.0

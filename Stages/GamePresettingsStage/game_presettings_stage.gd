@@ -50,6 +50,5 @@ func _on_hard_button_pressed() -> void:
 
 
 func _on_custom_button_pressed() -> void:
-	pass
-	#game_manager.difficulty_index = 4
-	#is_difficulty_choosen = true
+	game_manager.difficulty_index = 4
+	is_difficulty_choosen = true
