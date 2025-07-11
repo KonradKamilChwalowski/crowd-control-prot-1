@@ -4,73 +4,73 @@
 	  "id": 0,
 	  "name_eng": "Humans",
 	  "name_pl": "Ludzie",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 1,
 	  "name_eng": "Elfs",
 	  "name_pl": "Elfy",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 2,
 	  "name_eng": "Dwarfes",
 	  "name_pl": "Krasnoludy",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 3,
 	  "name_eng": "Orcs",
 	  "name_pl": "Orkowie",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 4,
 	  "name_eng": "Lizards",
 	  "name_pl": "Jaszczury",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 5,
 	  "name_eng": "Tortlings",
 	  "name_pl": "Żółwiaki",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 6,
 	  "name_eng": "Fishmen",
 	  "name_pl": "Ryboludy",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 7,
 	  "name_eng": "Fungoids",
 	  "name_pl": "Grzybowaci",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 8,
 	  "name_eng": "Froglings",
 	  "name_pl": "Żabole",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 9,
 	  "name_eng": "Dragonkin",
 	  "name_pl": "Smocze Dzieci",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 10,
 	  "name_eng": "Ents",
 	  "name_pl": "Enty",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 11,
 	  "name_eng": "Goblins",
 	  "name_pl": "Gobliny",
-	  "works_for_race": [0, 1, 2, 3]
+	  "works_for_race": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	}
   ],
   "WG": [

@@ -1,19 +1,36 @@
 extends Node2D
 
-@onready var json_path := "res://Utilities/groups.json"
-@onready var groups = load_groups()
+@onready var json_path: String = "res://Utilities/groups.json"
+@onready var groups: Dictionary = load_groups()
 
 var population: Array = []
+var groups_restrictions: Array = [[],[],[]]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("XD")
+	load_diff_restrictions()
 	generate_population()
 	# TODO calculate_support()
 
-# TODO
-func calculate_support() -> void:
-	pass
+func load_diff_restrictions() -> void:
+	# Load Races restrictions
+	var t_array = groups["RG"]
+	t_array.shuffle()
+	for race_i in game_manager.difficulty_settings[game_manager.difficulty_index][0]:
+		groups_restrictions[0].append(int(t_array[race_i]["id"]))
+	
+	# Load Works restrictions
+	t_array = groups["WG"]
+	t_array.shuffle()
+	for race_i in game_manager.difficulty_settings[game_manager.difficulty_index][1]:
+		groups_restrictions[1].append(int(t_array[race_i]["id"]))
+	
+	# Load Areas restrictions
+	t_array = groups["AG"]
+	t_array.shuffle()
+	for race_i in game_manager.difficulty_settings[game_manager.difficulty_index][2]:
+		groups_restrictions[2].append(int(t_array[race_i]["id"]))
+
 
 func generate_population() -> void:
 	var citizen: Array = []
@@ -25,11 +42,16 @@ func generate_population() -> void:
 	var avaible_works: Array = []
 	var citizen_work_id: int
 	for citizen_index in 10000:
-		# Assign random area id
-		citizen_area_id = int(groups["AG"][randi() % groups["AG"].size()]["id"])
+		# Assign random area id from restricted
+		citizen_area_id = int(groups_restrictions[2][randi() % groups_restrictions[2].size()])
+		
 		# For chosen area load avaible races
 		avaible_races_for_area = groups["AG"][citizen_area_id]["races_for_area"]
-		# For avaible races assign random race id
+		# Check if avaible_races are not restricted
+		for race in avaible_races_for_area.duplicate():
+			if not groups_restrictions[0].has(int(race)):
+				avaible_races_for_area.erase(race)
+		# From avaible races assign random race id
 		citizen_race_id = int(avaible_races_for_area[randi() % avaible_races_for_area.size()])
 		
 		# For chosen area and race load avaible occupation
@@ -39,12 +61,20 @@ func generate_population() -> void:
 		for work in avaible_works:
 			if not avaible_works_for_race.has(work):
 				avaible_works.erase(work)
-		# For avaible occupations assign random occupation id
+		# Check if avaible_works are not restricted
+		for work in avaible_works.duplicate():
+			if not groups_restrictions[1].has(int(work)):
+				avaible_works.erase(work)
+		# From avaible occupations assign random occupation id
 		citizen_work_id = int(avaible_works[randi() % avaible_works.size()])
 		citizen = [citizen_race_id, citizen_work_id, citizen_area_id].duplicate()
 		
 		# Adds citizen to population
 		population.append(citizen)
+
+# TODO
+func calculate_support() -> void:
+	pass
 
 func load_groups() -> Dictionary:
 	var file := FileAccess.open(json_path, FileAccess.READ)
