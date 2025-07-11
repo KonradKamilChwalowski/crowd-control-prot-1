@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _on_start_button_pressed() -> void:
-	game_manager.load_stage("menu_presetting_stage")
+	game_manager.load_stage("game_presetting_stage")
 
 
 func _on_howtoplay_button_pressed() -> void:

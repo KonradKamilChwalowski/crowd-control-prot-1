@@ -1,36 +1,24 @@
 extends Node2D
 
-var actual_stage: Node2D
-var menu_stage := load("res://Stages/MenuStage/menu_stage.tscn")
-var game_presetting_stage := load("res://Stages/GamePresettingsStage/game_presettings_stage.tscn")
-var game_stage := load("res://Stages/GameStage/game_stage.tscn")
-#var menu_howtoplay_stage := load("res://Stages/menu_howtoplay_stage.tscn")
-#var menu_options_stage := load("res://Stages/menu_options_stage.tscn")
-
+var difficulty_index: int
 var difficulty_settings: Array = [
 	[3, 3, 1, 1, 6],
 	[4, 5, 3, 2, 9],
 	[4, 6, 4, 3, 12],
 	[6, 8, 6, 4, 15]]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	load_stage("menu_stage")
+	pass
 
-
-
-func load_stage(stage_name: String) -> void:
-	if actual_stage:
-		actual_stage.queue_free()
-	
+func load_stage(stage_name: String) -> void:	
 	if stage_name == "menu_stage":
-		actual_stage = menu_stage.instantiate()
+		get_tree().change_scene_to_file("res://Stages/MenuStage/menu_stage.tscn")
 	
-	if stage_name == "menu_presetting_stage":
-		actual_stage = game_presetting_stage.instantiate()
+	if stage_name == "game_presetting_stage":
+		get_tree().change_scene_to_file("res://Stages/GamePresettingsStage/game_presettings_stage.tscn")
 		
 	if stage_name == "game_stage":
-		actual_stage = game_stage.instantiate()
+		get_tree().change_scene_to_file("res://Stages/GameStage/game_stage.tscn")
 	
 	#TODO
 	#if stage_name == "menu_howtoplay_stage":
@@ -39,5 +27,3 @@ func load_stage(stage_name: String) -> void:
 	#TODO
 	#if stage_name == "menu_options_stage":
 	#	actual_stage = menu_options_stage.instantiate()
-	
-	add_child(actual_stage)

@@ -7,6 +7,7 @@ var population: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("XD")
 	generate_population()
 	# TODO calculate_support()
 
@@ -26,7 +27,6 @@ func generate_population() -> void:
 	for citizen_index in 10000:
 		# Assign random area id
 		citizen_area_id = int(groups["AG"][randi() % groups["AG"].size()]["id"])
-		
 		# For chosen area load avaible races
 		avaible_races_for_area = groups["AG"][citizen_area_id]["races_for_area"]
 		# For avaible races assign random race id
@@ -34,7 +34,7 @@ func generate_population() -> void:
 		
 		# For chosen area and race load avaible occupation
 		avaible_works_for_area = groups["AG"][citizen_area_id]["works_for_area"]
-		avaible_works_for_race = groups["RG"][citizen_area_id]["works_for_race"]
+		avaible_works_for_race = groups["RG"][citizen_race_id]["works_for_race"]
 		avaible_works = avaible_works_for_area.duplicate()
 		for work in avaible_works:
 			if not avaible_works_for_race.has(work):

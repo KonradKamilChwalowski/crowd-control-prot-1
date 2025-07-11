@@ -2,61 +2,242 @@
   "RG": [
 	{
 	  "id": 0,
-	  "name": "Humans",
+	  "name_eng": "Humans",
+	  "name_pl": "Ludzie",
 	  "works_for_race": [0, 1, 2, 3]
 	},
 	{
 	  "id": 1,
-	  "name": "Elfs",
+	  "name_eng": "Elfs",
+	  "name_pl": "Elfy",
 	  "works_for_race": [0, 1, 2, 3]
 	},
 	{
 	  "id": 2,
-	  "name": "Dwarfes",
+	  "name_eng": "Dwarfes",
+	  "name_pl": "Krasnoludy",
 	  "works_for_race": [0, 1, 2, 3]
 	},
 	{
 	  "id": 3,
-	  "name": "Orcs",
+	  "name_eng": "Orcs",
+	  "name_pl": "Orkowie",
+	  "works_for_race": [0, 1, 2, 3]
+	},
+	{
+	  "id": 4,
+	  "name_eng": "Lizards",
+	  "name_pl": "Jaszczury",
+	  "works_for_race": [0, 1, 2, 3]
+	},
+	{
+	  "id": 5,
+	  "name_eng": "Tortlings",
+	  "name_pl": "Żółwiaki",
+	  "works_for_race": [0, 1, 2, 3]
+	},
+	{
+	  "id": 6,
+	  "name_eng": "Fishmen",
+	  "name_pl": "Ryboludy",
+	  "works_for_race": [0, 1, 2, 3]
+	},
+	{
+	  "id": 7,
+	  "name_eng": "Fungoids",
+	  "name_pl": "Grzybowaci",
+	  "works_for_race": [0, 1, 2, 3]
+	},
+	{
+	  "id": 8,
+	  "name_eng": "Froglings",
+	  "name_pl": "Żabole",
+	  "works_for_race": [0, 1, 2, 3]
+	},
+	{
+	  "id": 9,
+	  "name_eng": "Dragonkin",
+	  "name_pl": "Smocze Dzieci",
+	  "works_for_race": [0, 1, 2, 3]
+	},
+	{
+	  "id": 10,
+	  "name_eng": "Ents",
+	  "name_pl": "Enty",
+	  "works_for_race": [0, 1, 2, 3]
+	},
+	{
+	  "id": 11,
+	  "name_eng": "Goblins",
+	  "name_pl": "Gobliny",
 	  "works_for_race": [0, 1, 2, 3]
 	}
   ],
   "WG": [
 	{
 	  "id": 0,
-	  "name": "Hunters"
+	  "name_eng": "Hunters",
+	  "name_pl": "Myśliwi"
 	},
 	{
 	  "id": 1,
-	  "name": "Farmers"
+	  "name_eng": "Farmers",
+	  "name_pl": "Rolnicy"
 	},
 	{
 	  "id": 2,
-	  "name": "Traders"
+	  "name_eng": "Traders",
+	  "name_pl": "Handlarze"
 	},
 	{
 	  "id": 3,
-	  "name": "Soldiers"
+	  "name_eng": "Soldiers",
+	  "name_pl": "Żołnierze"
+	},
+	{
+	  "id": 4,
+	  "name_eng": "Builders",
+	  "name_pl": "Budowlańce"
+	},
+	{
+	  "id": 5,
+	  "name_eng": "Gatherers",
+	  "name_pl": "Zbieracze"
+	},
+	{
+	  "id": 6,
+	  "name_eng": "Publicans",
+	  "name_pl": "Karczmarze"
+	},
+	{
+	  "id": 7,
+	  "name_eng": "Schoolars",
+	  "name_pl": "Uczeni"
+	},
+	{
+	  "id": 8,
+	  "name_eng": "Clerks",
+	  "name_pl": "Urzędnicy"
+	},
+	{
+	  "id": 9,
+	  "name_eng": "Smiths",
+	  "name_pl": "Kowale"
+	},
+	{
+	  "id": 10,
+	  "name_eng": "Healers",
+	  "name_pl": "Znachorzy"
+	},
+	{
+	  "id": 11,
+	  "name_eng": "Miners",
+	  "name_pl": "Górnicy"
+	},
+	{
+	  "id": 12,
+	  "name_eng": "Lamberjacks",
+	  "name_pl": "Drwale"
 	}
   ],
   "AG": [
 	{
 	  "id": 0,
-	  "name": "Plains",
-	  "races_for_area": [0, 1, 3],
-	  "works_for_area": [0, 1, 2, 3]
+	  "name_eng": "Plains",
+	  "name_pl": "Równiny",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 1,
-	  "name": "Forests",
-	  "races_for_area": [1, 3],
-	  "works_for_area": [0, 1, 2, 3]
+	  "name_eng": "Forests",
+	  "name_pl": "Lasy",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	},
 	{
 	  "id": 2,
-	  "name": "Mountains",
-	  "races_for_area": [0, 2, 3],
-	  "works_for_area": [0, 1, 2, 3]
+	  "name_eng": "Tundra",
+	  "name_pl": "Tundra",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 3,
+	  "name_eng": "Mountains",
+	  "name_pl": "Góry",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 4,
+	  "name_eng": "Hills",
+	  "name_pl": "Wzórza",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 5,
+	  "name_eng": "Swamps",
+	  "name_pl": "Bagna",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 6,
+	  "name_eng": "Lakes",
+	  "name_pl": "Jeziora",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 7,
+	  "name_eng": "Seaside",
+	  "name_pl": "Nadmorskie Plaże",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 8,
+	  "name_eng": "Volcanoes",
+	  "name_pl": "Wulkany",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 9,
+	  "name_eng": "Caves",
+	  "name_pl": "Jaskinie",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 10,
+	  "name_eng": "Islands",
+	  "name_pl": "Wyspy",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 11,
+	  "name_eng": "Valleys",
+	  "name_pl": "Doliny",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 12,
+	  "name_eng": "Jungle",
+	  "name_pl": "Dżungla",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	},
+	{
+	  "id": 13,
+	  "name_eng": "Deserts",
+	  "name_pl": "Pustynia",
+	  "races_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+	  "works_for_area": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	}
   ]
 }
