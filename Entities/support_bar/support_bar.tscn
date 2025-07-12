@@ -34,7 +34,7 @@ color = Color(0, 0, 0, 0.501961)
 
 [node name="SupportBar" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 80.0
+offset_left = 200.0
 offset_top = 40.0
 offset_right = 320.0
 offset_bottom = 72.0

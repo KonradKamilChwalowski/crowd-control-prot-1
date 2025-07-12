@@ -5,12 +5,15 @@ extends Node2D
 
 var population: Array = []
 var groups_restrictions: Array = [[],[],[]]
+var candidates: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_diff_restrictions()
 	generate_population()
+	generate_candidates()
 	# TODO calculate_support()
+
 
 func load_diff_restrictions() -> void:
 	# Load Races restrictions
@@ -71,6 +74,21 @@ func generate_population() -> void:
 		
 		# Adds citizen to population
 		population.append(citizen)
+
+
+func generate_candidates() -> void:
+	for candidate_index in (game_manager.difficulty_settings[game_manager.difficulty_index][3] + 1):
+		var race_array: Array = []
+		for race_index in game_manager.difficulty_settings[game_manager.difficulty_index][0]:
+			race_array.append((randi() % 200 - 100) * 0.01)
+		var work_array: Array = []
+		for race_index in game_manager.difficulty_settings[game_manager.difficulty_index][1]:
+			work_array.append(0.35)
+		var area_array: Array = []
+		for race_index in game_manager.difficulty_settings[game_manager.difficulty_index][2]:
+			area_array.append(0.45)
+		candidates.append([race_array, work_array, area_array])
+
 
 # TODO
 func calculate_support() -> void:

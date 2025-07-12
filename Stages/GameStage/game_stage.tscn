@@ -52,7 +52,7 @@ texture = ExtResource("2_j7o1g")
 layout_mode = 0
 offset_top = 62.0
 offset_right = 335.0
-offset_bottom = 100.0
+offset_bottom = 104.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.392157, 0.392157, 0.392157, 1)
 theme_override_font_sizes/font_size = 24
@@ -61,13 +61,69 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Background/SupportTable"]
-custom_minimum_size = Vector2(335, 477)
+[node name="SuppSwitchButton" type="Button" parent="Background/SupportTable/SupportLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="RacesScrollContainer" type="ScrollContainer" parent="Background/SupportTable"]
+custom_minimum_size = Vector2(335, 435)
 layout_mode = 0
 offset_top = 100.0
 offset_right = 335.0
-offset_bottom = 577.0
+offset_bottom = 535.0
 
-[node name="RacesContainer" type="VBoxContainer" parent="Background/SupportTable/ScrollContainer"]
-custom_minimum_size = Vector2(335, 477)
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/SupportTable/RacesScrollContainer"]
+custom_minimum_size = Vector2(335, 435)
 layout_mode = 2
+
+[node name="WorksScrollContainer" type="ScrollContainer" parent="Background/SupportTable"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 0
+offset_top = 100.0
+offset_right = 335.0
+offset_bottom = 535.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/SupportTable/WorksScrollContainer"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 2
+
+[node name="AreasScrollContainer" type="ScrollContainer" parent="Background/SupportTable"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 0
+offset_top = 100.0
+offset_right = 335.0
+offset_bottom = 535.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/SupportTable/AreasScrollContainer"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 2
+
+[node name="CandidateLabel" type="Label" parent="Background/SupportTable"]
+layout_mode = 0
+offset_top = 536.0
+offset_right = 335.0
+offset_bottom = 578.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.392157, 0.392157, 0.392157, 1)
+theme_override_font_sizes/font_size = 24
+text = "Candidate"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="CandSwitchButton" type="Button" parent="Background/SupportTable/CandidateLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Background/SupportTable/SupportLabel/SuppSwitchButton" to="." method="_on_supp_switch_button_pressed"]
+[connection signal="pressed" from="Background/SupportTable/CandidateLabel/CandSwitchButton" to="." method="_on_cand_switch_button_pressed"]

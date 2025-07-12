@@ -6,9 +6,6 @@ extends Control
 @onready var name_label: Label = $NameLabel
 @onready var bar_label: Label = $PercentSupportLabel
 
-func _ready() -> void:
-	update_support((randi() % 100) * 0.01)
-
 func name_bar(name_text: String) -> void:
 	name_label.text = name_text
 
@@ -23,11 +20,12 @@ func change_icon(icon_id: int) -> void:
 		icon.texture = load("res://Entities/support_bar/Orc.png")
 
 func update_support(support_percent: float) -> void: # argument in [0; 1]
-	if support_percent < 0.0:
-		support_percent = 0.0
+	if support_percent < -1.0:
+		support_percent = -1.0
 	if support_percent > 1.0:
 		support_percent = 1.0
 	
 	support_bar.color = Color((1 - support_percent) , support_percent, 0.0)
 	support_bar.scale.x = support_percent
-	bar_label.text = str(int(support_percent * 100)) + "%"
+	support_bar.position.x = 200
+	bar_label.text = str(int(support_percent * 100))
