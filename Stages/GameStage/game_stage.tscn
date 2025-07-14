@@ -125,6 +125,13 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
+[node name="ShowScrollButton" type="Button" parent="Background/SupportScroll"]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 37.0
+offset_right = 372.0
+offset_bottom = 603.0
+
 [node name="PopulationScroll" type="TextureRect" parent="Background"]
 layout_mode = 0
 offset_left = 983.0
@@ -193,6 +200,13 @@ offset_bottom = 535.0
 custom_minimum_size = Vector2(335, 435)
 layout_mode = 2
 
+[node name="ShowScrollButton" type="Button" parent="Background/PopulationScroll"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 37.0
+offset_right = 48.0
+offset_bottom = 603.0
+
 [node name="VBoxContainer" type="HBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = -1
@@ -220,4 +234,6 @@ text = "Post 3"
 
 [connection signal="pressed" from="Background/SupportScroll/SupportLabel/SuppSwitchButton" to="." method="_on_supp_switch_button_pressed"]
 [connection signal="pressed" from="Background/SupportScroll/CandidateLabel/CandSwitchButton" to="." method="_on_cand_switch_button_pressed"]
+[connection signal="pressed" from="Background/SupportScroll/ShowScrollButton" to="." method="_on_Left_show_scroll_button_pressed"]
 [connection signal="pressed" from="Background/PopulationScroll/PopulationLabel/GroupSwitchButton" to="." method="_on_group_switch_button_pressed"]
+[connection signal="pressed" from="Background/PopulationScroll/ShowScrollButton" to="." method="_on_right_show_scroll_button_pressed"]

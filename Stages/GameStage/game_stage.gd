@@ -2,22 +2,31 @@ extends Node2D
 
 @onready var population_manager: Node2D = $PopulationManager
 
+@onready var support_scroll: TextureRect = $Background/SupportScroll
 @onready var supp_group_label: Label = $Background/SupportScroll/SupportLabel
 @onready var supp_candidate_label: Label = $Background/SupportScroll/CandidateLabel
 @onready var supp_races_container: ScrollContainer = $Background/SupportScroll/RacesScrollContainer
 @onready var supp_works_container: ScrollContainer = $Background/SupportScroll/WorksScrollContainer
 @onready var supp_areas_container: ScrollContainer = $Background/SupportScroll/AreasScrollContainer
+@onready var show_scroll_button_left: Button = $Background/SupportScroll/ShowScrollButton
 
+@onready var population_scroll: TextureRect = $Background/PopulationScroll
 @onready var population_group_label: Label = $Background/PopulationScroll/PopulationLabel
 @onready var population_races_container: ScrollContainer = $Background/PopulationScroll/RacesScrollContainer
 @onready var population_works_container: ScrollContainer = $Background/PopulationScroll/WorksScrollContainer
 @onready var population_areas_container: ScrollContainer = $Background/PopulationScroll/AreasScrollContainer
+@onready var show_scroll_button_right: Button = $Background/PopulationScroll/ShowScrollButton
 
 @onready var support_bar := load("res://Entities/support_bar/support_bar.tscn")
 
+# COUNTERS
 var supp_group_counter: int = -1
 var candidate_counter: int = -1
 var population_group_counter: int = -1
+var is_left_scroll_hiden = true
+var is_left_scroll_animation_off = true
+var is_right_scroll_hiden = true
+var is_right_scroll_animation_off = true
 
 func _ready() -> void:
 	instantiate_support_bars()
@@ -27,6 +36,31 @@ func _ready() -> void:
 	_on_group_switch_button_pressed()
 	#new round
 
+func _process(delta: float) -> void:
+	# SCROLL ANIMATION
+	if not is_left_scroll_animation_off:
+		if is_left_scroll_hiden:
+			support_scroll.position.x += delta*200
+			if support_scroll.position.x > 0:
+				support_scroll.position.x = 0
+				is_left_scroll_animation_off = true
+		else:
+			support_scroll.position.x -= delta*200
+			if support_scroll.position.x < -336:
+				support_scroll.position.x = -336
+				is_left_scroll_animation_off = true
+	
+	if not is_right_scroll_animation_off:
+		if is_right_scroll_hiden:
+			population_scroll.position.x -= delta*200
+			if population_scroll.position.x < 983:
+				population_scroll.position.x = 983
+				is_right_scroll_animation_off = true
+		else:
+			population_scroll.position.x += delta*200
+			if population_scroll.position.x > 1318:
+				population_scroll.position.x = 1318
+				is_right_scroll_animation_off = true
 
 func instantiate_support_bars() -> void:
 	for race_counter in game_manager.difficulty_settings[game_manager.difficulty_index][0]:
@@ -133,3 +167,21 @@ func _on_cand_switch_button_pressed() -> void:
 		supp_candidate_label.text = "Your sympathies"
 	else:
 		supp_candidate_label.text = "Sympathies of enemy " + str(candidate_index)
+
+
+func _on_Left_show_scroll_button_pressed() -> void:
+	if is_left_scroll_animation_off:
+		is_left_scroll_animation_off = false
+		if is_left_scroll_hiden:
+			is_left_scroll_hiden = false
+		else:
+			is_left_scroll_hiden = true
+
+
+func _on_right_show_scroll_button_pressed() -> void:
+	if is_right_scroll_animation_off:
+		is_right_scroll_animation_off = false
+		if is_right_scroll_hiden:
+			is_right_scroll_hiden = false
+		else:
+			is_right_scroll_hiden = true

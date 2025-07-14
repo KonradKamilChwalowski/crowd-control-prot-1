@@ -11,7 +11,6 @@ func name_bar(name_text: String) -> void:
 
 func change_icon(group: String, icon_id: int) -> void:
 	var image_path: String  = "res://Entities/support_bar/" + group + "_" + str(icon_id) + ".png"
-	print(image_path)
 	if FileAccess.file_exists(image_path):
 		icon.texture = load(image_path)
 	else:
