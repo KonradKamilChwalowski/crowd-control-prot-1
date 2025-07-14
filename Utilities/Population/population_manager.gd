@@ -6,13 +6,14 @@ extends Node2D
 var population: Array = []
 var groups_restrictions: Array = [[],[],[]]
 var candidates: Array = []
+var votes: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_diff_restrictions()
 	generate_population()
 	generate_candidates()
-	# TODO calculate_support()
+	votes = calculate_support()
 
 
 func load_diff_restrictions() -> void:
@@ -44,7 +45,7 @@ func generate_population() -> void:
 	var avaible_works_for_race: Array = []
 	var avaible_works: Array = []
 	var citizen_work_id: int
-	for citizen_index in 10000:
+	for citizen_index in 4:
 		# Assign random area id from restricted
 		citizen_area_id = int(groups_restrictions[2][randi() % groups_restrictions[2].size()])
 		
@@ -91,8 +92,31 @@ func generate_candidates() -> void:
 
 
 # TODO
-func calculate_support() -> void:
-	pass
+func calculate_support() -> Array:
+	var population_votes: Array = []
+	# For every citizen calculate his support for every candidate
+	for citizen in population:
+		var support_for_candidates: Array = []
+		for candidate in candidates:
+			var support: float = 0.0
+			for group_index in citizen.size():
+				var rwa_index:int = groups_restrictions[group_index].find(citizen[group_index])
+				support += candidate[group_index][rwa_index]
+			support_for_candidates.append(support)
+		# Every citizen chose his candidateby biggest support
+		var vote:int = find_all_and_return_random(support_for_candidates, support_for_candidates.max())
+		population_votes.append(vote)
+	return population_votes
+	# Update candidates support
+
+func find_all_and_return_random(array: Array, value) -> int:
+	var indexes := []
+	for i in range(array.size()):
+		if array[i] == value:
+			indexes.append(i)
+	indexes.shuffle()
+	return indexes[0]
+
 
 func load_groups() -> Dictionary:
 	var file := FileAccess.open(json_path, FileAccess.READ)
