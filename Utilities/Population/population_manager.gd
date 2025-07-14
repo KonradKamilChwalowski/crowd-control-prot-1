@@ -14,7 +14,6 @@ func _ready() -> void:
 	load_diff_restrictions()
 	generate_population()
 	generate_candidates()
-	print(groups_population)
 	votes = calculate_support()
 
 
