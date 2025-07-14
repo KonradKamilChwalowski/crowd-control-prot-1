@@ -29,3 +29,16 @@ func update_support(support_percent: float) -> void: # argument in [0; 1]
 	support_bar.scale.x = support_percent
 	support_bar.position.x = 200
 	bar_label.text = str(int(support_percent * 100))
+
+func update_population(group_population: int):
+	if group_population < 0:
+		group_population = 0
+	if group_population > 10000:
+		group_population = 10000
+	
+	var population_percent: float = float(group_population)/10000.0
+	support_bar.color = Color(0,0,0,1)
+	support_bar.scale.x = population_percent * 2
+	support_bar.position.x = 80
+	bar_label.text = str(int(population_percent * 100)) + "," + str(int(population_percent * 10000)%100) + "%"
+	name_label.text += ": " + str(group_population)

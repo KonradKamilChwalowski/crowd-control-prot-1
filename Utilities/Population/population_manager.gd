@@ -4,6 +4,7 @@ extends Node2D
 @onready var groups: Dictionary = load_groups()
 
 var population: Array = []
+var groups_population: Array = [[],[],[]]
 var groups_restrictions: Array = [[],[],[]]
 var candidates: Array = []
 var votes: Array = []
@@ -13,6 +14,7 @@ func _ready() -> void:
 	load_diff_restrictions()
 	generate_population()
 	generate_candidates()
+	print(groups_population)
 	votes = calculate_support()
 
 
@@ -45,7 +47,16 @@ func generate_population() -> void:
 	var avaible_works_for_race: Array = []
 	var avaible_works: Array = []
 	var citizen_work_id: int
-	for citizen_index in 4:
+	
+	# Make array of zeros
+	for race_i in game_manager.difficulty_settings[game_manager.difficulty_index][0]:
+		groups_population[0].append(0)
+	for work_i in game_manager.difficulty_settings[game_manager.difficulty_index][1]:
+		groups_population[1].append(0)
+	for area_i in game_manager.difficulty_settings[game_manager.difficulty_index][2]:
+		groups_population[2].append(0)
+	
+	for citizen_index in 10000:
 		# Assign random area id from restricted
 		citizen_area_id = int(groups_restrictions[2][randi() % groups_restrictions[2].size()])
 		
@@ -75,6 +86,10 @@ func generate_population() -> void:
 		
 		# Adds citizen to population
 		population.append(citizen)
+		
+		# Count +1 in groups_population
+		for group_index in groups_population.size():
+			groups_population[group_index][groups_restrictions[group_index].find(citizen[group_index])] += 1
 
 
 func generate_candidates() -> void:

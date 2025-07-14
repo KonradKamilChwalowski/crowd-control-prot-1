@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://5cr86765w11w"]
+[gd_scene load_steps=6 format=3 uid="uid://5cr86765w11w"]
 
 [ext_resource type="Texture2D" uid="uid://dhq4jmn56dxfq" path="res://Stages/GameStage/game_stage_background.png" id="1_fmqpx"]
 [ext_resource type="Script" uid="uid://sg5pu8j6khsx" path="res://Stages/GameStage/game_stage.gd" id="1_ggcax"]
 [ext_resource type="PackedScene" uid="uid://d317u2y08x6t6" path="res://Utilities/Population/population_manager.tscn" id="2_5w2tj"]
-[ext_resource type="Texture2D" uid="uid://cjbdqkvg8hfkq" path="res://Stages/GameStage/one_sided_scroll.png" id="2_j7o1g"]
+[ext_resource type="Texture2D" uid="uid://cjbdqkvg8hfkq" path="res://Stages/GameStage/one_sided_scroll_left.png" id="2_j7o1g"]
+[ext_resource type="Texture2D" uid="uid://drmat0k14vhyy" path="res://Stages/GameStage/one_sided_scroll_right.png" id="5_5w2tj"]
 
 [node name="GameStage" type="Node2D"]
 script = ExtResource("1_ggcax")
@@ -15,6 +16,182 @@ visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_fmqpx")
+
+[node name="TVScreen" type="ColorRect" parent="Background"]
+custom_minimum_size = Vector2(309, 160)
+layout_mode = 0
+offset_left = 528.0
+offset_top = 80.0
+offset_right = 837.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+
+[node name="TVLabel" type="Label" parent="Background/TVScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "News"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SupportScroll" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 384.0
+offset_bottom = 670.0
+texture = ExtResource("2_j7o1g")
+
+[node name="SupportLabel" type="Label" parent="Background/SupportScroll"]
+custom_minimum_size = Vector2(335, 42)
+layout_mode = 0
+offset_top = 62.0
+offset_right = 335.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.392157, 0.392157, 0.392157, 1)
+theme_override_font_sizes/font_size = 24
+text = "Support"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SuppSwitchButton" type="Button" parent="Background/SupportScroll/SupportLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="RacesScrollContainer" type="ScrollContainer" parent="Background/SupportScroll"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 0
+offset_top = 100.0
+offset_right = 335.0
+offset_bottom = 535.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/SupportScroll/RacesScrollContainer"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 2
+
+[node name="WorksScrollContainer" type="ScrollContainer" parent="Background/SupportScroll"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 0
+offset_top = 100.0
+offset_right = 335.0
+offset_bottom = 535.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/SupportScroll/WorksScrollContainer"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 2
+
+[node name="AreasScrollContainer" type="ScrollContainer" parent="Background/SupportScroll"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 0
+offset_top = 100.0
+offset_right = 335.0
+offset_bottom = 535.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/SupportScroll/AreasScrollContainer"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 2
+
+[node name="CandidateLabel" type="Label" parent="Background/SupportScroll"]
+custom_minimum_size = Vector2(335, 42)
+layout_mode = 0
+offset_top = 536.0
+offset_right = 335.0
+offset_bottom = 578.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.392157, 0.392157, 0.392157, 1)
+theme_override_font_sizes/font_size = 24
+text = "Candidate"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="CandSwitchButton" type="Button" parent="Background/SupportScroll/CandidateLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="PopulationScroll" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 983.0
+offset_top = 30.0
+offset_right = 1367.0
+offset_bottom = 670.0
+texture = ExtResource("5_5w2tj")
+
+[node name="PopulationLabel" type="Label" parent="Background/PopulationScroll"]
+custom_minimum_size = Vector2(335, 42)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 62.0
+offset_right = 383.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.392157, 0.392157, 0.392157, 1)
+theme_override_font_sizes/font_size = 24
+text = "Population"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="GroupSwitchButton" type="Button" parent="Background/PopulationScroll/PopulationLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="RacesScrollContainer" type="ScrollContainer" parent="Background/PopulationScroll"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 383.0
+offset_bottom = 535.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/PopulationScroll/RacesScrollContainer"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 2
+
+[node name="WorksScrollContainer" type="ScrollContainer" parent="Background/PopulationScroll"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 383.0
+offset_bottom = 535.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/PopulationScroll/WorksScrollContainer"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 2
+
+[node name="AreasScrollContainer" type="ScrollContainer" parent="Background/PopulationScroll"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 383.0
+offset_bottom = 535.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/PopulationScroll/AreasScrollContainer"]
+custom_minimum_size = Vector2(335, 435)
+layout_mode = 2
 
 [node name="VBoxContainer" type="HBoxContainer" parent="Background"]
 layout_mode = 1
@@ -41,89 +218,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Post 3"
 
-[node name="SupportTable" type="TextureRect" parent="Background"]
-layout_mode = 0
-offset_top = 30.0
-offset_right = 384.0
-offset_bottom = 670.0
-texture = ExtResource("2_j7o1g")
-
-[node name="SupportLabel" type="Label" parent="Background/SupportTable"]
-layout_mode = 0
-offset_top = 62.0
-offset_right = 335.0
-offset_bottom = 104.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.392157, 0.392157, 0.392157, 1)
-theme_override_font_sizes/font_size = 24
-text = "Support"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="SuppSwitchButton" type="Button" parent="Background/SupportTable/SupportLabel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-flat = true
-
-[node name="RacesScrollContainer" type="ScrollContainer" parent="Background/SupportTable"]
-custom_minimum_size = Vector2(335, 435)
-layout_mode = 0
-offset_top = 100.0
-offset_right = 335.0
-offset_bottom = 535.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/SupportTable/RacesScrollContainer"]
-custom_minimum_size = Vector2(335, 435)
-layout_mode = 2
-
-[node name="WorksScrollContainer" type="ScrollContainer" parent="Background/SupportTable"]
-custom_minimum_size = Vector2(335, 435)
-layout_mode = 0
-offset_top = 100.0
-offset_right = 335.0
-offset_bottom = 535.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/SupportTable/WorksScrollContainer"]
-custom_minimum_size = Vector2(335, 435)
-layout_mode = 2
-
-[node name="AreasScrollContainer" type="ScrollContainer" parent="Background/SupportTable"]
-custom_minimum_size = Vector2(335, 435)
-layout_mode = 0
-offset_top = 100.0
-offset_right = 335.0
-offset_bottom = 535.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/SupportTable/AreasScrollContainer"]
-custom_minimum_size = Vector2(335, 435)
-layout_mode = 2
-
-[node name="CandidateLabel" type="Label" parent="Background/SupportTable"]
-layout_mode = 0
-offset_top = 536.0
-offset_right = 335.0
-offset_bottom = 578.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.392157, 0.392157, 0.392157, 1)
-theme_override_font_sizes/font_size = 24
-text = "Candidate"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="CandSwitchButton" type="Button" parent="Background/SupportTable/CandidateLabel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-flat = true
-
-[connection signal="pressed" from="Background/SupportTable/SupportLabel/SuppSwitchButton" to="." method="_on_supp_switch_button_pressed"]
-[connection signal="pressed" from="Background/SupportTable/CandidateLabel/CandSwitchButton" to="." method="_on_cand_switch_button_pressed"]
+[connection signal="pressed" from="Background/SupportScroll/SupportLabel/SuppSwitchButton" to="." method="_on_supp_switch_button_pressed"]
+[connection signal="pressed" from="Background/SupportScroll/CandidateLabel/CandSwitchButton" to="." method="_on_cand_switch_button_pressed"]
+[connection signal="pressed" from="Background/PopulationScroll/PopulationLabel/GroupSwitchButton" to="." method="_on_group_switch_button_pressed"]
