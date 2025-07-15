@@ -66,35 +66,35 @@ func instantiate_support_bars() -> void:
 	for race_counter in game_manager.difficulty_settings[game_manager.difficulty_index][0]:
 		var t_bar = support_bar.instantiate()
 		supp_races_container.get_child(0).add_child(t_bar)
-		t_bar.name_bar(population_manager.groups["RG"][race_counter]["name_eng"])
-		t_bar.change_icon("RG", population_manager.groups["RG"][race_counter]["id"])
+		t_bar.name_bar(population_manager.groups["RG"][population_manager.groups_restrictions[0][race_counter]]["name_eng"])
+		t_bar.change_icon("RG", population_manager.groups["RG"][population_manager.groups_restrictions[0][race_counter]]["id"])
 	for work_counter in game_manager.difficulty_settings[game_manager.difficulty_index][1]:
 		var t_bar = support_bar.instantiate()
 		supp_works_container.get_child(0).add_child(t_bar)
-		t_bar.name_bar(population_manager.groups["WG"][work_counter]["name_eng"])
-		t_bar.change_icon("WG", population_manager.groups["WG"][work_counter]["id"])
+		t_bar.name_bar(population_manager.groups["WG"][population_manager.groups_restrictions[1][work_counter]]["name_eng"])
+		t_bar.change_icon("WG", population_manager.groups["WG"][population_manager.groups_restrictions[1][work_counter]]["id"])
 	for area_counter in game_manager.difficulty_settings[game_manager.difficulty_index][2]:
 		var t_bar = support_bar.instantiate()
 		supp_areas_container.get_child(0).add_child(t_bar)
-		t_bar.name_bar(population_manager.groups["AG"][area_counter]["name_eng"])
-		t_bar.change_icon("AG", population_manager.groups["AG"][area_counter]["id"])
+		t_bar.name_bar(population_manager.groups["AG"][population_manager.groups_restrictions[2][area_counter]]["name_eng"])
+		t_bar.change_icon("AG", population_manager.groups["AG"][population_manager.groups_restrictions[2][area_counter]]["id"])
 
 func instantiate_population_bars() -> void:
 	for race_counter in game_manager.difficulty_settings[game_manager.difficulty_index][0]:
 		var t_bar = support_bar.instantiate()
 		population_races_container.get_child(0).add_child(t_bar)
-		t_bar.name_bar(population_manager.groups["RG"][race_counter]["name_eng"])
-		t_bar.change_icon("RG", population_manager.groups["RG"][race_counter]["id"])
+		t_bar.name_bar(population_manager.groups["RG"][population_manager.groups_restrictions[0][race_counter]]["name_eng"])
+		t_bar.change_icon("RG", population_manager.groups["RG"][population_manager.groups_restrictions[0][race_counter]]["id"])
 	for work_counter in game_manager.difficulty_settings[game_manager.difficulty_index][1]:
 		var t_bar = support_bar.instantiate()
 		population_works_container.get_child(0).add_child(t_bar)
-		t_bar.name_bar(population_manager.groups["WG"][work_counter]["name_eng"])
-		t_bar.change_icon("WG", population_manager.groups["WG"][work_counter]["id"])
+		t_bar.name_bar(population_manager.groups["WG"][population_manager.groups_restrictions[1][work_counter]]["name_eng"])
+		t_bar.change_icon("WG", population_manager.groups["WG"][population_manager.groups_restrictions[1][work_counter]]["id"])
 	for area_counter in game_manager.difficulty_settings[game_manager.difficulty_index][2]:
 		var t_bar = support_bar.instantiate()
 		population_areas_container.get_child(0).add_child(t_bar)
-		t_bar.name_bar(population_manager.groups["AG"][area_counter]["name_eng"])
-		t_bar.change_icon("AG", population_manager.groups["AG"][area_counter]["id"])
+		t_bar.name_bar(population_manager.groups["AG"][population_manager.groups_restrictions[2][area_counter]]["name_eng"])
+		t_bar.change_icon("AG", population_manager.groups["AG"][population_manager.groups_restrictions[2][area_counter]]["id"])
 	update_population()
 
 func update_support(candidate_index) -> void:

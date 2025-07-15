@@ -1,6 +1,8 @@
 extends Node2D
 
 var difficulty_index: int
+var is_difficulty_custom = false
+var groups_restrictions: Array = [[],[],[]]
 var difficulty_settings: Array = [
 	[3, 3, 1, 1, 6],
 	[4, 5, 3, 2, 9],

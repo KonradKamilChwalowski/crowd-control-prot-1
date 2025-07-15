@@ -11,7 +11,12 @@ var votes: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	load_diff_restrictions()
+	print(groups_restrictions)
+	if game_manager.is_difficulty_custom:
+		groups_restrictions = game_manager.groups_restrictions
+	else:
+		load_diff_restrictions()
+	print(groups_restrictions)
 	generate_population()
 	generate_candidates()
 	votes = calculate_support()
