@@ -1,16 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://db57rpr3j5nse"]
+[gd_scene load_steps=3 format=3 uid="uid://db57rpr3j5nse"]
 
 [ext_resource type="Texture2D" uid="uid://2dcbairm7i1h" path="res://Entities/support_bar/Human.png" id="1_cxap4"]
+[ext_resource type="Script" uid="uid://dvlsoh2x00idi" path="res://Entities/post_tooltip/post_tooltip.gd" id="1_h5inm"]
 
 [node name="PostTooltip" type="Control"]
+custom_minimum_size = Vector2(200, 80)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1166.0
+offset_bottom = -688.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h5inm")
 
 [node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 264.0

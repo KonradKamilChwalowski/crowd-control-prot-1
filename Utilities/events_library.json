@@ -1,0 +1,30 @@
+[
+	{
+		"id": 0,
+		"category": "Build",
+		"Description": "Should we build more Schools?",
+		"Races_id": [],
+		"Works_id": [7],
+		"Areas_id": [],
+		"Reaction0": "Yes for shools!",
+		"Consequences0": [2],
+		"Reaction1": "Let me ask my adviser - a schoolar.",
+		"Consequences1": [0],
+		"Reaction2": "No for schools!",
+		"Consequences2": [-1]
+	},
+	{
+		"id": 1,
+		"category": "Build",
+		"Description": "Should we build more Farms?",
+		"Races_id": [],
+		"Works_id": [1],
+		"Areas_id": [],
+		"Reaction0": "Yes for farms!",
+		"Consequences0": [2],
+		"Reaction1": "Let me ask my adviser - a farmer.",
+		"Consequences1": [0],
+		"Reaction2": "No for farms!",
+		"Consequences2": [-1]
+	}
+]

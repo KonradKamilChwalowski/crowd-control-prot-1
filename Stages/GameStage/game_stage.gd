@@ -19,8 +19,14 @@ extends Node2D
 @onready var population_areas_container: ScrollContainer = $Background/PopulationScroll/AreasScrollContainer
 @onready var show_scroll_button_right: Button = $Background/PopulationScroll/ShowScrollButton
 
+# TV AND POSTS
+@onready var tv_label: Label = $"Background/TVScreen/TVLabel"
+@onready var posts_containar: HBoxContainer = $"Background/PostsContainer"
+
 @onready var support_bar := load("res://Entities/support_bar/support_bar.tscn")
 @onready var post_tooltip := load("res://Entities/post_tooltip/post_tooltip.tscn")
+@onready var json_path: String = "res://Utilities/events_library.json"
+@onready var events_library: Array = load_events()
 
 # COUNTERS
 var supp_group_counter: int = -1
@@ -30,17 +36,57 @@ var is_left_scroll_hiden = true
 var is_left_scroll_animation_off = true
 var is_right_scroll_hiden = true
 var is_right_scroll_animation_off = true
+var events_that_already_happend: Array = []
 
-func update_posts() -> void:
-	pass
-	#opdate_one_post(post_button_1)
-	#opdate_one_post(post_button_2)
-	#opdate_one_post(post_button_3)
+func update_events() -> void:
+	var event_id: int = int(randi() % events_library.size())
+	events_that_already_happend.append(event_id)
+	tv_label.text = events_library[event_id]["Description"]
+	var reactions: Array = [[],[],[]]
+	for i in reactions.size():
+		reactions[i].append(events_library[event_id]["Reaction" + str(i)])
+		reactions[i].append(events_library[event_id]["Consequences" + str(i)])
+		update_button(posts_containar.get_child(i), reactions[i], event_id)
 
-func update_one_post(button: Button) -> void:
-	pass
-	# var vbcontainer: VBoxContainer = VBoxContainer.new()
-	# for tag in tags.size()
+func update_button(button: Button, reactions: Array, event_id: int) -> void:
+	for child in button.get_children():
+		child.queue_free()
+	
+	button.text = reactions[0]
+	var vbcontainer: VBoxContainer = VBoxContainer.new()
+	button.add_child(vbcontainer)
+	vbcontainer.add_theme_constant_override("separation", 0)
+	for race in events_library[event_id]["Races_id"].size():
+		var tooltip = post_tooltip.instantiate()
+		vbcontainer.add_child(tooltip)
+		tooltip.init("RG", events_library[event_id]["Races_id"][race])
+	for work in events_library[event_id]["Works_id"].size():
+		var tooltip = post_tooltip.instantiate()
+		vbcontainer.add_child(tooltip)
+		tooltip.init("WG", events_library[event_id]["Works_id"][work])
+	for area in events_library[event_id]["Areas_id"].size():
+		var tooltip = post_tooltip.instantiate()
+		vbcontainer.add_child(tooltip)
+		tooltip.init("AG", events_library[event_id]["Areas_id"][area])
+	await get_tree().process_frame
+	vbcontainer.position.y -= vbcontainer.size.y
+	vbcontainer.visible = false
+
+func load_events() -> Array:
+	var file := FileAccess.open(json_path, FileAccess.READ)
+	if file:
+		var content: String = file.get_as_text()
+		var data: Array = JSON.parse_string(content)
+		file.close()
+		if typeof(data) == TYPE_ARRAY:
+			return data
+		else:
+			print("Niepoprawny format JSON")
+			return []
+	else:
+		print("Nie można otworzyć pliku JSON")
+		return []
+
 
 func _ready() -> void:
 	instantiate_support_bars()
@@ -48,6 +94,7 @@ func _ready() -> void:
 	_on_supp_switch_button_pressed()
 	_on_cand_switch_button_pressed()
 	_on_group_switch_button_pressed()
+	update_events()
 	#new round
 
 func _process(delta: float) -> void:
@@ -203,3 +250,32 @@ func _on_right_show_scroll_button_pressed() -> void:
 			is_right_scroll_hiden = false
 		else:
 			is_right_scroll_hiden = true
+
+
+func _on_post_button_mouse_entered() -> void:
+	for child in posts_containar.get_children():
+		child.get_child(0).visible = true
+
+
+func _on_post_button_mouse_exited() -> void:
+	for child in posts_containar.get_children():
+		child.get_child(0).visible = false
+
+
+func _on_post_button_1_pressed() -> void:
+	update_events()
+	await get_tree().process_frame
+	for child in posts_containar.get_children():
+		child.get_child(0).visible = true
+
+func _on_post_button_2_pressed() -> void:
+	update_events()
+	await get_tree().process_frame
+	for child in posts_containar.get_children():
+		child.get_child(0).visible = true
+
+func _on_post_button_3_pressed() -> void:
+	update_events()
+	await get_tree().process_frame
+	for child in posts_containar.get_children():
+		child.get_child(0).visible = true
