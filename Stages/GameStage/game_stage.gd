@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var population_manager: Node2D = $PopulationManager
 
+# LEFT SCROLL
 @onready var support_scroll: TextureRect = $Background/SupportScroll
 @onready var supp_group_label: Label = $Background/SupportScroll/SupportLabel
 @onready var supp_candidate_label: Label = $Background/SupportScroll/CandidateLabel
@@ -10,6 +11,7 @@ extends Node2D
 @onready var supp_areas_container: ScrollContainer = $Background/SupportScroll/AreasScrollContainer
 @onready var show_scroll_button_left: Button = $Background/SupportScroll/ShowScrollButton
 
+# RIGHT SCROLL
 @onready var population_scroll: TextureRect = $Background/PopulationScroll
 @onready var population_group_label: Label = $Background/PopulationScroll/PopulationLabel
 @onready var population_races_container: ScrollContainer = $Background/PopulationScroll/RacesScrollContainer
@@ -18,6 +20,7 @@ extends Node2D
 @onready var show_scroll_button_right: Button = $Background/PopulationScroll/ShowScrollButton
 
 @onready var support_bar := load("res://Entities/support_bar/support_bar.tscn")
+@onready var post_tooltip := load("res://Entities/post_tooltip/post_tooltip.tscn")
 
 # COUNTERS
 var supp_group_counter: int = -1
@@ -28,6 +31,17 @@ var is_left_scroll_animation_off = true
 var is_right_scroll_hiden = true
 var is_right_scroll_animation_off = true
 
+func update_posts() -> void:
+	pass
+	#opdate_one_post(post_button_1)
+	#opdate_one_post(post_button_2)
+	#opdate_one_post(post_button_3)
+
+func update_one_post(button: Button) -> void:
+	pass
+	# var vbcontainer: VBoxContainer = VBoxContainer.new()
+	# for tag in tags.size()
+
 func _ready() -> void:
 	instantiate_support_bars()
 	instantiate_population_bars()
@@ -37,7 +51,7 @@ func _ready() -> void:
 	#new round
 
 func _process(delta: float) -> void:
-	# SCROLL ANIMATION
+	# LEFT SCROLL ANIMATION
 	if not is_left_scroll_animation_off:
 		if is_left_scroll_hiden:
 			support_scroll.position.x += delta*200
@@ -49,7 +63,7 @@ func _process(delta: float) -> void:
 			if support_scroll.position.x < -336:
 				support_scroll.position.x = -336
 				is_left_scroll_animation_off = true
-	
+	# RIGHT SCROLL ANIMATION
 	if not is_right_scroll_animation_off:
 		if is_right_scroll_hiden:
 			population_scroll.position.x -= delta*200
@@ -61,6 +75,7 @@ func _process(delta: float) -> void:
 			if population_scroll.position.x > 1318:
 				population_scroll.position.x = 1318
 				is_right_scroll_animation_off = true
+
 
 func instantiate_support_bars() -> void:
 	for race_counter in game_manager.difficulty_settings[game_manager.difficulty_index][0]:
@@ -97,6 +112,7 @@ func instantiate_population_bars() -> void:
 		t_bar.change_icon("AG", population_manager.groups["AG"][population_manager.groups_restrictions[2][area_counter]]["id"])
 	update_population()
 
+
 func update_support(candidate_index) -> void:
 	var race_bars_array: Array = supp_races_container.get_child(0).get_children()
 	for race_bar_index in supp_races_container.get_child(0).get_children().size():
@@ -110,6 +126,7 @@ func update_support(candidate_index) -> void:
 	for area_bar_index in supp_areas_container.get_child(0).get_children().size():
 		area_bars_array[area_bar_index].update_support(population_manager.candidates[candidate_index][2][area_bar_index])
 
+
 func update_population() -> void:
 	var race_bars_array: Array = population_races_container.get_child(0).get_children()
 	for race_bar_index in population_races_container.get_child(0).get_children().size():
@@ -120,6 +137,7 @@ func update_population() -> void:
 	var area_bars_array: Array = population_areas_container.get_child(0).get_children()
 	for area_bar_index in supp_areas_container.get_child(0).get_children().size():
 		area_bars_array[area_bar_index].update_population(population_manager.groups_population[2][area_bar_index])
+
 
 func _on_supp_switch_button_pressed() -> void:
 	supp_group_counter += 1

@@ -10,11 +10,11 @@ func name_bar(name_text: String) -> void:
 	name_label.text = name_text
 
 func change_icon(group: String, icon_id: int) -> void:
-	var image_path: String  = "res://Entities/support_bar/" + group + "_" + str(icon_id) + ".png"
+	var image_path: String  = "res://Assets/Icons/" + group + "_" + str(icon_id) + ".png"
 	if FileAccess.file_exists(image_path):
 		icon.texture = load(image_path)
 	else:
-		icon.texture = load("res://Entities/support_bar/error.png")
+		icon.texture = load("res://Assets/Icons/error.png")
 
 func update_support(support_percent: float) -> void: # argument in [0; 1]
 	if support_percent < -1.0:

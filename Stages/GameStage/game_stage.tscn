@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://5cr86765w11w"]
+[gd_scene load_steps=7 format=3 uid="uid://5cr86765w11w"]
 
 [ext_resource type="Texture2D" uid="uid://dhq4jmn56dxfq" path="res://Stages/GameStage/game_stage_background.png" id="1_fmqpx"]
 [ext_resource type="Script" uid="uid://sg5pu8j6khsx" path="res://Stages/GameStage/game_stage.gd" id="1_ggcax"]
 [ext_resource type="PackedScene" uid="uid://d317u2y08x6t6" path="res://Utilities/Population/population_manager.tscn" id="2_5w2tj"]
 [ext_resource type="Texture2D" uid="uid://cjbdqkvg8hfkq" path="res://Stages/GameStage/one_sided_scroll_left.png" id="2_j7o1g"]
 [ext_resource type="Texture2D" uid="uid://drmat0k14vhyy" path="res://Stages/GameStage/one_sided_scroll_right.png" id="5_5w2tj"]
+[ext_resource type="PackedScene" uid="uid://db57rpr3j5nse" path="res://Entities/post_tooltip/post_tooltip.tscn" id="6_is0av"]
 
 [node name="GameStage" type="Node2D"]
 script = ExtResource("1_ggcax")
@@ -207,7 +208,7 @@ offset_top = 37.0
 offset_right = 48.0
 offset_bottom = 603.0
 
-[node name="VBoxContainer" type="HBoxContainer" parent="Background"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.28
@@ -217,17 +218,26 @@ anchor_bottom = 0.77
 offset_bottom = 80.0
 alignment = 1
 
-[node name="PostButton1" type="Button" parent="Background/VBoxContainer"]
+[node name="PostButton1" type="Button" parent="Background/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Post 1"
 
-[node name="PostButton2" type="Button" parent="Background/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/HBoxContainer/PostButton1"]
+custom_minimum_size = Vector2(197, 40)
+layout_mode = 0
+offset_right = 197.0
+offset_bottom = 40.0
+
+[node name="PostTooltip" parent="Background/HBoxContainer/PostButton1/VBoxContainer" instance=ExtResource("6_is0av")]
+layout_mode = 2
+
+[node name="PostButton2" type="Button" parent="Background/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Post 2"
 
-[node name="PostButton3" type="Button" parent="Background/VBoxContainer"]
+[node name="PostButton3" type="Button" parent="Background/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Post 3"
