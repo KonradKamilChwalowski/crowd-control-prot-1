@@ -53,6 +53,7 @@ func update_button(button: Button, reactions: Array, event_id: int) -> void:
 		child.queue_free()
 	
 	button.text = reactions[0]
+	var rgw_counter: int = -1
 	var vbcontainer: VBoxContainer = VBoxContainer.new()
 	button.add_child(vbcontainer)
 	vbcontainer.add_theme_constant_override("separation", 0)
@@ -60,14 +61,20 @@ func update_button(button: Button, reactions: Array, event_id: int) -> void:
 		var tooltip = post_tooltip.instantiate()
 		vbcontainer.add_child(tooltip)
 		tooltip.init("RG", events_library[event_id]["Races_id"][race])
+		rgw_counter += 1
+		tooltip.update_text(int(reactions[1][rgw_counter]))
 	for work in events_library[event_id]["Works_id"].size():
 		var tooltip = post_tooltip.instantiate()
 		vbcontainer.add_child(tooltip)
 		tooltip.init("WG", events_library[event_id]["Works_id"][work])
+		rgw_counter += 1
+		tooltip.update_text(int(reactions[1][rgw_counter]))
 	for area in events_library[event_id]["Areas_id"].size():
 		var tooltip = post_tooltip.instantiate()
 		vbcontainer.add_child(tooltip)
 		tooltip.init("AG", events_library[event_id]["Areas_id"][area])
+		rgw_counter += 1
+		tooltip.update_text(int(reactions[1][rgw_counter]))
 	await get_tree().process_frame
 	vbcontainer.position.y -= vbcontainer.size.y
 	vbcontainer.visible = false
